@@ -1,7 +1,7 @@
 import Sidenav from "./(pages)/_components/Sidenav";
 import TopHeader from "./(pages)/_components/TopHeader";
 
-export default function Home({ children }) {
+export default function page({ children }) {
   return (
     <div className="bg-black">
       {/* Sidebar */}
