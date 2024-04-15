@@ -33,7 +33,7 @@ const Upload = () => {
   }, [uploadCompleted, docId]); // Add docId to the dependencies array
 
   const uploadFile = (file) => {
-    console.log("main", file.name);
+    // console.log("main", file.name);
     const metadata = {
       contentType: file.type,
     };
@@ -50,13 +50,13 @@ const Upload = () => {
         if (progress === 100) {
           setUploadCompleted(true);
         }
-        console.log("Upload is " + progress + "% done");
+        // console.log("Upload is " + progress + "% done");
         switch (snapshot.state) {
           case "paused":
-            console.log("Upload is paused");
+            // console.log("Upload is paused");
             break;
           case "running":
-            console.log("Upload is running");
+            // console.log("Upload is running");
             break;
         }
       },
@@ -81,7 +81,7 @@ const Upload = () => {
       () => {
         // Upload completed successfully, now we can get the download URL
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log("File available at", downloadURL);
+          // console.log("File available at", downloadURL);
           saveInfo(file, downloadURL);
         });
       }

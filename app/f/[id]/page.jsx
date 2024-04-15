@@ -17,10 +17,10 @@ const page = ({ params }) => {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       setFileData(docSnap.data());
-      console.log("Document data:", docSnap.data());
+      //   console.log("Document data:", docSnap.data());
     } else {
       // docSnap.data() will be undefined in this case
-      console.log("No such document!");
+      //   console.log("No such document!");
     }
   };
   return (

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FileCheck2, Zap, Ruler, Download } from "lucide-react";
 const FileItem = ({ data }) => {
   const [password, setPassword] = useState();
-  console.log("disabled", password === data?.password);
+  //   console.log("disabled", password === data?.password);
   return (
     <div
       style={{ border: "1px solid #444" }}
