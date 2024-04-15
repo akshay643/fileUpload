@@ -4,8 +4,6 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,6 +12,10 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+}
+
+* {
+  box-sizing: unset;
 }
 
 body {
@@ -30,4 +32,37 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+.butn {
+  padding: 15px 35px;
+  font-size: 13px;
+  border: 1px solid transparent;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.butn:hover .char {
+  -webkit-animation: fadeInUp 0.3s cubic-bezier(0.3, 0, 0.7, 1) both;
+  animation: fadeInUp 0.3s cubic-bezier(0.3, 0, 0.7, 1) both;
+  -webkit-animation-delay: calc(30ms * var(--char-index));
+  animation-delay: calc(30ms * var(--char-index));
+}
+
+.butn.bord {
+  border: 1px solid #fff;
+}
+
+.butn.curve {
+  border-radius: 5px;
+}
+
+.butn.bord:hover {
+  background: #fff;
+  color: #333;
+}
+
+.butn.dark:hover {
+  background: #fff;
+  color: #333;
 }
