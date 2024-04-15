@@ -13,4 +13,3 @@ const Home = ({ children }) => {
 };
 
 // Export the Home component as the default export
-export default Home;
