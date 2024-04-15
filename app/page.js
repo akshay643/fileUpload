@@ -1,19 +1,24 @@
-import Image from "next/image";
-import Header from "./_components/Header";
-import Hero from "./_components/Hero";
-import Footer from "./_components/Footer";
-import Sidenav from "./(pages)/_components/Sidenav";
-import TopHeader from "./(pages)/_components/TopHeader";
+import Sidenav from "./_components/Sidenav";
+import TopHeader from "./_components/TopHeader";
+
 export default function Home({ children }) {
   return (
     <div className="bg-black">
-      <div className=" h-full md:w-64 flex-col fixed inset-y-0 z-50">
+      {/* Sidebar */}
+      <div className="h-full md:w-64 flex-col fixed inset-y-0 z-50">
         <Sidenav />
       </div>
+
+      {/* Top Header */}
       <div>
         <TopHeader />
       </div>
-      <div className="ml-64">{children}</div>
+
+      {/* Main Content */}
+      <div className="ml-64">
+        {/* Render the children content */}
+        {children}
+      </div>
     </div>
   );
 }
