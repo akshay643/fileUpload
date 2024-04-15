@@ -19,22 +19,6 @@ const Layout = ({ children }) => {
       {/* <TopHeader /> */}
       <div className="w-full">{children}</div>
     </div>
-    // <div className="bg-black">
-    //   {/* Sidebar */}
-    //   <div className={`flex-col absolute left-0 ${open ? "" : "-left-64"}`}>
-    //     <Sidenav handleClick={() => setOpen(!open)} openState={open} />
-    //   </div>
-
-    //   {/* Main Content */}
-    //   <div className="ml-0 md:ml-64">
-    //     {" "}
-    //     {/* Adjust margins based on sidebar visibility */}
-    //     {/* Navbar */}
-    //     <TopHeader handleClick={() => setOpen(!open)} openState={open} />
-    //     {/* Content */}
-    //     <div className="py-6 px-4">{children}</div>
-    //   </div>
-    // </div>
   );
 };
 
