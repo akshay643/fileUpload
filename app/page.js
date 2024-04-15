@@ -1,5 +1,5 @@
-import Sidenav from "./_components/Sidenav";
-import TopHeader from "./_components/TopHeader";
+import Sidenav from "./(pages)/_components/Sidenav";
+import TopHeader from "./(pages)/_components/TopHeader";
 
 export default function Home({ children }) {
   return (
