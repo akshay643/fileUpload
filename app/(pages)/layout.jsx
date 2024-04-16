@@ -14,7 +14,11 @@ const Layout = ({ children }) => {
     <div className="h-screen w-screen bg-black flex">
       <Sidenav handleClick={() => setOpen(!open)} openState={open} />
       <div>
-        <Menu className="absolute top-10 left-10" onClick={handleOpen} />
+        <Menu
+          className="absolute top-10 left-10"
+          color="white"
+          onClick={handleOpen}
+        />
       </div>
       {/* <TopHeader /> */}
       <div className="w-full">{children}</div>

@@ -28,12 +28,12 @@ const Sidenav = ({ handleClick, openState }) => {
       path: "/files",
       icon: File,
     },
-    {
-      id: 1,
-      name: "Upgrade",
-      path: "/upload",
-      icon: Shield,
-    },
+    // {
+    //   id: 1,
+    //   name: "Upgrade",
+    //   path: "/upload",
+    //   icon: Shield,
+    // },
   ];
   return (
     <div
@@ -73,13 +73,19 @@ const Sidenav = ({ handleClick, openState }) => {
         </div>
       </div>
 
-      <div className="sticky inset-x-0 bottom-0  justify-center border-t border-gray-100">
+      <div className="sticky inset-x-0 bottom-0 hover:black/50  justify-center border-t border-gray-100">
         <a
           href="#"
           className="flex items-center gap-2 bg-black p-4 hover:bg-black/50 text-white"
         >
-          <button onClick={() => signOut(() => router.push("/sign-in"))}>
-            <LogOut />
+          <button
+            className="hover:black:50"
+            onClick={() => signOut(() => router.push("/sign-in"))}
+          >
+            <LogOut
+              className="hover:scale-125 duration-700 ease-in-out"
+              title="logout"
+            />
           </button>
 
           <div></div>

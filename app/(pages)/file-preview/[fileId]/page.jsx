@@ -55,7 +55,7 @@ const FilePreview = ({ params }) => {
     }
   };
   return (
-    <div className="lg:p-20 sm:mt-40 lg:mt-20 sm:p-10 h-screen overflow-hidden">
+    <div className="lg:p-20 sm:mt-40 lg:mt-20 md:mt-20 sm:p-5 h-screen overflow-hidden">
       <div className="flex gap-4">
         <Link
           href="/upload"
@@ -67,16 +67,17 @@ const FilePreview = ({ params }) => {
       </div>
 
       <div
-        className="flex lg:flex-row sm:flex-col justify-between items-start p-6 rounded-lg gap-2"
-        style={{ border: "1px solid #444" }}
+        className="flex lg:flex-row  md:flex-col sm:flex-col lg:mt-10 md:mt-20 sm:mt-30 xs:mt-30 xs:flex-col  justify-between items-start p-6 rounded-lg gap-2"
+        style={{ border: "1px solid #444", background: "#16171A" }}
       >
         <div className="w-full flex flex-col gap-3">
           <h3 className="text-lg font-bold text-white sm:text-xl">Short Url</h3>
           <div className="flex lg:flex-row sm:flex-col items-center gap-2">
             <input
               type="text"
+              disabled
               value={fileData?.shortUrl}
-              style={{ border: "1px solid #444" }}
+              style={{ border: "1px solid #444", background: "#16171A" }}
               className="text-white bg-black border-solid border-white rounded-xl p-3 w-9/12"
             />
             <span>
@@ -99,6 +100,7 @@ const FilePreview = ({ params }) => {
                 type="checkbox"
                 checked={passwordEnable || fileData?.password}
                 className="w-12 h-6 rounded-xl"
+                style={{ background: "#16171A" }}
               />
             </span>
             <br />
@@ -109,7 +111,7 @@ const FilePreview = ({ params }) => {
                   onChange={(e) => setFilePassword(e.target.value)}
                   placeholder="Enter Password"
                   style={{ border: "1px solid #444" }}
-                  className="text-white bg-black border-solid border-white rounded-xl p-3 w-9/12"
+                  className="text-white border-solid bg-black border-white rounded-xl p-3 w-9/12"
                 />
                 <button
                   onClick={handlePasswordSave}

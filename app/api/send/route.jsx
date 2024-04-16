@@ -10,11 +10,13 @@ export async function POST(req, resp) {
   // console.log(reqData.userName);
   try {
     const data = await resend.emails.send({
-      from: "akshaythakur@resend.dev",
+      // from: "akshaythakur@resend.dev",
+      from: "welcome@akshaythakur.blog",
       to: reqData.sendEmailTo,
       subject: `File Shared by ${reqData?.userName}`,
       react: EmailTemplate({ data: reqData }),
     });
+    console.log(data);
 
     return Response.json(data);
   } catch (error) {

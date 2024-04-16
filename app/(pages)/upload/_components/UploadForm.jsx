@@ -2,6 +2,7 @@ import Alert from "../../../_components/Alert";
 import React from "react";
 import FilePreview from "./FilePreview";
 import ProgressBar from "./ProgressBar";
+import { ArrowUpFromLine } from "lucide-react";
 const UploadForm = ({ uploadHandle, progress }) => {
   const [file, setFile] = React.useState();
   const [error, setError] = React.useState(false);
@@ -78,10 +79,12 @@ const UploadForm = ({ uploadHandle, progress }) => {
             disabled={!file}
             type="submit"
             className={`px-6 py-4 border rounded-xl hover:text-black  ${
-              !file ? "bg-gray-700 border-0" : "bg-black border-1"
+              !file ? "bg-gray-500 border-0" : "bg-black border-1"
             } `}
           >
-            <span className="text-white">Upload</span>
+            <span className="text-white flex gap-2">
+              <ArrowUpFromLine color="white" /> Upload
+            </span>
           </button>
         </div>
       )}
