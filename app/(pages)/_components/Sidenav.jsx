@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { SignOutButton, UserButton } from "@clerk/nextjs";
 import { Cross, File, X, Shield, Upload } from "lucide-react";
 import { useClerk } from "@clerk/clerk-react";
 import { LogOut } from "lucide-react";
+import { UserButton } from "@clerk/clerk-react";
+
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const Sidenav = ({ handleClick, openState }) => {
@@ -50,21 +52,23 @@ const Sidenav = ({ handleClick, openState }) => {
 
         <div className="mt-6 space-y-1">
           {menuList?.map((item, index) => (
-            <button
-              key={index}
-              onClick={() => setActive(index)}
-              className={`px-2 rounded-xl w-full flex justify-start bg-black/50  items-center ${
-                active === index && "bg-gray-700"
-              } `}
+            <Link
+              href={item.path}
+              // className="text-white"
+              className={`
+              // px-2 rounded-xl w-full flex justify-start bg-black text-white items-center
+               ${active === index && "bg-gray-700"} `}
             >
-              <item.icon color="white" />
-              <a
-                href={item.path}
-                className="block rounded-lg  px-4 py-4 text-sm font-medium text-white"
+              <button
+                key={index}
+                className="flex gap-4 px-2 py-4"
+                onClick={() => setActive(index)}
               >
+                <item.icon color="white" />
+
                 {item.name}
-              </a>
-            </button>
+              </button>
+            </Link>
           ))}
         </div>
       </div>
@@ -78,13 +82,7 @@ const Sidenav = ({ handleClick, openState }) => {
             <LogOut />
           </button>
 
-          <div>
-            <p className="text-xs text-white">
-              <strong className="block text-white font-medium">SignOut </strong>
-
-              {/* <span> eric@frusciante.com </span> */}
-            </p>
-          </div>
+          <div></div>
         </a>
       </div>
     </div>

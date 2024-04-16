@@ -49,7 +49,7 @@ const FileItem = ({ data }) => {
         <button
           onClick={() => window.open(data?.fileurl)}
           disabled={password !== data?.password}
-          className={`px-6 py-4 flex gap-4 rounded ${
+          className={`px-6 py-4 flex gap-4 rounded  ${
             password === data?.password
               ? "bg-green-400 text-white"
               : "bg-gray-500 text-gray-100"

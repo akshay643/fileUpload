@@ -15,7 +15,7 @@ const FilePreview = ({ params }) => {
   const [fileData, setFileData] = useState();
   const [passwordEnable, setPasswordEnable] = useState(false);
   const [emailToSend, setEmailToSend] = useState("");
-  const [filePassword, setFilePassword] = useState();
+  const [filePassword, setFilePassword] = useState(fileData?.password);
   const [copied, setCopied] = useState({ value: "", copied: false });
   useEffect(() => {
     getFileInfo();
@@ -26,10 +26,11 @@ const FilePreview = ({ params }) => {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       setFileData(docSnap.data());
-      console.log("Document data:", docSnap.data());
+      setFilePassword("docsnap", docSnap.data().password);
+      // console.log("Document data:", docSnap.data());
     } else {
       // docSnap.data() will be undefined in this case
-      console.log("No such document!");
+      // console.log("No such document!");
     }
   };
 
@@ -39,6 +40,7 @@ const FilePreview = ({ params }) => {
     await updateDoc(userDataRef, {
       password: filePassword,
     });
+    toast("Password Saved Successfully!");
   };
 
   const sendEmail = async () => {
@@ -53,7 +55,7 @@ const FilePreview = ({ params }) => {
     }
   };
   return (
-    <div className="lg:p-20 sm:mt-40 sm:p-10 h-screen overflow-hidden">
+    <div className="lg:p-20 sm:mt-40 lg:mt-20 sm:p-10 h-screen overflow-hidden">
       <div className="flex gap-4">
         <Link
           href="/upload"
@@ -95,12 +97,12 @@ const FilePreview = ({ params }) => {
               <input
                 onChange={() => setPasswordEnable(!passwordEnable)}
                 type="checkbox"
-                checked={passwordEnable}
+                checked={passwordEnable || fileData?.password}
                 className="w-12 h-6 rounded-xl"
               />
             </span>
             <br />
-            {passwordEnable && (
+            {passwordEnable || fileData?.password ? (
               <div className="flex">
                 <input
                   type="text"
@@ -117,6 +119,8 @@ const FilePreview = ({ params }) => {
                   Save
                 </button>
               </div>
+            ) : (
+              ""
             )}
           </div>
           <div
